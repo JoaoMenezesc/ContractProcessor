@@ -10,12 +10,11 @@ public class ContractService {
     public void processContract(Contract contract, Integer months){
             OnlinePaymentService onlinePaymentService = new PaypalService();
             for (int i=1; i<=months; i++) {
-               double a = onlinePaymentService.interest(contract.getTotalValue() / months, i);
-               double b = onlinePaymentService.paymentFee(a + contract.getTotalValue() / months);
-               double c = a + b + contract.getTotalValue() / months;
-               LocalDate localDate2 = LocalDate.from(contract.getDate());
-               LocalDate localDate = localDate2.plusMonths(i);
-               Installment installment = new Installment(localDate, c);
+               double finalTaxPrice = onlinePaymentService.paymentFee(onlinePaymentService.interest(contract.getTotalValue() / months, i)+ contract.getTotalValue() / months);
+               double finalPrice = finalTaxPrice + contract.getTotalValue() / months;
+               LocalDate contractDate = LocalDate.from(contract.getDate());
+               LocalDate installmentContract = contractDate.plusMonths(i);
+               Installment installment = new Installment(installmentContract, finalPrice);
                System.out.println(installment);
 
             }
