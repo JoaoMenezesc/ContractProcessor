@@ -2,14 +2,8 @@ package application;
 
 import entities.model.Contract;
 import entities.service.ContractService;
-import entities.service.OnlinePaymentService;
-import entities.service.PaypalService;
-
-import java.text.ParseException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -36,6 +30,7 @@ public class Program {
         System.out.println("Parcelas:");
         ContractService contractService = new ContractService();
         contractService.processContract(contract, installment);
+        2
 
 
 

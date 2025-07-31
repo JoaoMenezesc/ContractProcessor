@@ -27,9 +27,7 @@ public class Installment {
         return amount;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
+
 
     @Override
     public String toString() {
