@@ -15,10 +15,11 @@ public class ContractService {
             double finalPrice = interest + paymentFee + contract.getTotalValue() / months;
             LocalDate contractDate = LocalDate.from(contract.getDate());
             LocalDate installmentDate = contractDate.plusMonths(i);
-            contract.setInstallment(new Installment(installmentDate, finalPrice));
-            System.out.println(contract.getInstallment());
-
+            contract.getInstallmentsList().add(new Installment(installmentDate, finalPrice));
         }
 
+        for (int i=0; i<contract.getInstallmentsList().size(); i++) {
+            System.out.println(contract.getInstallmentsList().get(i));
+        }
     }
 }
