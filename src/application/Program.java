@@ -30,7 +30,7 @@ public class Program {
         System.out.println("Parcelas:");
         ContractService contractService = new ContractService();
         contractService.processContract(contract, installment);
-        2
+
 
 
 
